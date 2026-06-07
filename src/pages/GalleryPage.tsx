@@ -20,7 +20,7 @@ export function GalleryPage() {
         url="https://alemaovargasmoreira.com.br/galeria"
       />
       <div className="mb-12">
-        <p className="text-xs text-orange-500 tracking-[0.4em] uppercase mb-2">Coleção</p>
+        <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-2">Coleção</p>
         <h1 className="text-4xl font-light text-white">Galeria de Obras</h1>
       </div>
 
@@ -32,8 +32,8 @@ export function GalleryPage() {
             onClick={() => setActive(cat)}
             className={`px-4 py-2 text-xs tracking-widest uppercase transition-colors ${
               active === cat
-                ? 'bg-orange-800 text-white'
-                : 'border border-neutral-800 text-neutral-500 hover:border-neutral-600 hover:text-white'
+                ? 'bg-[var(--terra)] text-white'
+                : 'border border-[var(--teal-600)] text-[var(--cream-3)] hover:border-neutral-600 hover:text-[var(--cream)]'
             }`}
           >
             {cat}
@@ -49,7 +49,7 @@ export function GalleryPage() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-neutral-600 py-20">Nenhuma obra nesta categoria.</p>
+        <p className="text-center text-[var(--teal-500)] py-20">Nenhuma obra nesta categoria.</p>
       )}
     </main>
   )

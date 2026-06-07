@@ -11,34 +11,36 @@ export function ArtworkCard({ artwork }: Props) {
 
   return (
     <Link to={`/obra/${artwork.slug.current}`} className="group block">
-      <div className="overflow-hidden bg-neutral-900 aspect-[3/4]">
+      <div className="overflow-hidden bg-[var(--teal-800)] aspect-[3/4] relative">
         <img
           src={imageUrl}
           alt={artwork.image.alt || artwork.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
           loading="lazy"
         />
+        {/* overlay suave no hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
       </div>
 
       <div className="mt-4 space-y-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-base font-light leading-snug text-white group-hover:text-orange-200 transition-colors">
+          <h3 className="text-base font-light leading-snug text-neutral-200 group-hover:text-[var(--cream)] transition-colors duration-300">
             {artwork.title}
           </h3>
           {!artwork.inStock && (
-            <span className="shrink-0 text-xs text-neutral-600 border border-neutral-800 px-2 py-0.5">
+            <span className="shrink-0 text-xs text-[var(--teal-500)] border border-[var(--teal-600)] px-2 py-0.5">
               Vendido
             </span>
           )}
         </div>
 
-        <p className="text-xs text-neutral-500 tracking-wider uppercase">
+        <p className="text-xs text-[var(--cream-3)] tracking-wider uppercase">
           {artwork.medium} · {artwork.year}
         </p>
-        <p className="text-xs text-neutral-600">{artwork.dimensions}</p>
+        <p className="text-xs text-[var(--teal-500)]">{artwork.dimensions}</p>
 
         {artwork.inStock && (
-          <p className="text-sm text-orange-400 font-light mt-2">
+          <p className="text-sm text-[var(--peach)] font-light mt-2 group-hover:text-[var(--peach)] transition-colors duration-300">
             R$ {artwork.price.toLocaleString('pt-BR')}
           </p>
         )}

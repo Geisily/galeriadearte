@@ -50,9 +50,9 @@ export function VideosPage() {
     />
     <main className="max-w-7xl mx-auto px-6 py-16">
       <div className="mb-12">
-        <p className="text-xs text-orange-500 tracking-[0.4em] uppercase mb-2">Processo Criativo</p>
+        <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-2">Processo Criativo</p>
         <h1 className="text-4xl font-light text-white">Vídeos no TikTok</h1>
-        <p className="mt-3 text-neutral-500 max-w-xl leading-relaxed">
+        <p className="mt-3 text-[var(--cream-3)] max-w-xl leading-relaxed">
           Bastidores do ateliê, técnicas de pintura a óleo e o olhar de quem dedica a vida à arte.
         </p>
       </div>
@@ -66,7 +66,7 @@ export function VideosPage() {
             rel="noopener noreferrer"
             className="group block"
           >
-            <div className="aspect-[9/16] overflow-hidden bg-neutral-900 relative">
+            <div className="aspect-[9/16] overflow-hidden bg-[var(--teal-800)] relative">
               <img
                 src={video.thumb}
                 alt={video.title}
@@ -81,7 +81,7 @@ export function VideosPage() {
               </div>
               <span className="absolute bottom-3 right-3 text-xs text-white/70">{video.views} views</span>
             </div>
-            <p className="mt-3 text-sm text-neutral-400 group-hover:text-white transition-colors leading-snug">
+            <p className="mt-3 text-sm text-[var(--cream-2)] group-hover:text-[var(--cream)] transition-colors leading-snug">
               {video.title}
             </p>
           </a>
@@ -93,7 +93,7 @@ export function VideosPage() {
           href={artistInfo.tiktok}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-10 py-4 border border-neutral-700 text-white hover:border-orange-700 transition-colors text-sm tracking-widest uppercase"
+          className="inline-flex items-center gap-3 px-10 py-4 border border-neutral-700 text-white hover:border-[var(--terra-h)] transition-colors text-sm tracking-widest uppercase"
         >
           Ver todos no TikTok
         </a>
