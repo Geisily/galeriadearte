@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
+import { WhatsAppButton } from './components/WhatsAppButton'
+import { CookieBanner } from './components/CookieBanner'
 import { HomePage } from './pages/HomePage'
 import { GalleryPage } from './pages/GalleryPage'
 import { ArtworkDetailPage } from './pages/ArtworkDetailPage'
@@ -11,6 +13,7 @@ import { CheckoutPage } from './pages/CheckoutPage'
 import { AboutPage } from './pages/AboutPage'
 import { VideosPage } from './pages/VideosPage'
 import { ContactPage } from './pages/ContactPage'
+import { EncomendaPage } from './pages/EncomendaPage'
 
 const StudioPage = lazy(() => import('./pages/StudioPage'))
 
@@ -22,7 +25,7 @@ function App() {
           <Route
             path="/admin/*"
             element={
-              <Suspense fallback={<div style={{ padding: 40, color: '#1d3a4a' }}>Carregando painel...</div>}>
+              <Suspense fallback={<div style={{ padding: 40, color: 'var(--petrol)' }}>Carregando painel...</div>}>
                 <StudioPage />
               </Suspense>
             }
@@ -42,9 +45,12 @@ function App() {
                     <Route path="/sobre" element={<AboutPage />} />
                     <Route path="/videos" element={<VideosPage />} />
                     <Route path="/contato" element={<ContactPage />} />
+                    <Route path="/encomenda" element={<EncomendaPage />} />
                   </Routes>
                 </div>
                 <Footer />
+                <WhatsAppButton />
+                <CookieBanner />
               </div>
             }
           />

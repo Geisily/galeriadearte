@@ -12,101 +12,150 @@ export function ContactPage() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <main>
       <SEO
         title="Contato"
-        description={`Entre em contato com ${artistInfo.name} para dúvidas sobre obras, encomendas e envio. Pintura a óleo realista original.`}
+        description={`Entre em contato com ${artistInfo.name} para dúvidas sobre obras, encomendas e envio.`}
         url="https://alemaovargasmoreira.com.br/contato"
       />
-      <div className="mb-12">
-        <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-2">Fale Conosco</p>
-        <h1 className="text-4xl font-light text-white">Contato</h1>
-        <p className="mt-3 text-[var(--cream-3)] leading-relaxed max-w-lg">
-          Dúvidas sobre obras, encomendas, frete ou exposições? Entre em contato.
-        </p>
+
+      <div className="border-b" style={{ backgroundColor: 'var(--card)', borderColor: '#e8e0d6' }}>
+        <div className="max-w-7xl mx-auto px-6 py-14">
+          <p className="section-label mb-3">Fale Conosco</p>
+          <h1 className="text-serif font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--grafite)' }}>
+            Contato
+          </h1>
+          <p className="mt-3 text-sm" style={{ color: 'var(--bege-d)', maxWidth: '440px' }}>
+            Dúvidas sobre obras, encomendas, frete ou exposições? Entre em contato.
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        {/* Informações */}
+      <div className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-3 gap-14">
+
+        {/* Sidebar */}
         <div className="space-y-8">
-          <div>
-            <p className="text-xs text-[var(--teal-500)] uppercase tracking-widest mb-3">Localização</p>
-            <p className="text-[var(--cream-2)]">{artistInfo.location}</p>
-          </div>
+          {[
+            { label: 'Localização', value: artistInfo.location },
+            { label: 'Resposta', value: '1 a 2 dias úteis' },
+          ].map(({ label, value }) => (
+            <div key={label}>
+              <p className="text-xs uppercase tracking-widest mb-2 font-semibold" style={{ color: 'var(--bege-d)' }}>
+                {label}
+              </p>
+              <p className="text-sm" style={{ color: 'var(--grafite)' }}>{value}</p>
+            </div>
+          ))}
 
           <div>
-            <p className="text-xs text-[var(--teal-500)] uppercase tracking-widest mb-3">TikTok</p>
+            <p className="text-xs uppercase tracking-widest mb-2 font-semibold" style={{ color: 'var(--bege-d)' }}>
+              TikTok
+            </p>
             <a
               href={artistInfo.tiktok}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--salmon)] hover:text-[var(--peach)] transition-colors text-sm"
+              className="text-sm transition-colors hover:text-[var(--terra)]"
+              style={{ color: 'var(--petrol)' }}
             >
-              @alemaovargasmoreira
+              {artistInfo.tiktokHandle}
             </a>
           </div>
 
-          <div>
-            <p className="text-xs text-[var(--teal-500)] uppercase tracking-widest mb-3">Tempo de resposta</p>
-            <p className="text-[var(--cream-2)] text-sm">Geralmente em 1–2 dias úteis</p>
+          <div
+            className="p-5 rounded-sm"
+            style={{ backgroundColor: 'var(--bege-l)', border: '1px solid var(--bege)' }}
+          >
+            <p className="text-serif font-semibold text-base mb-2" style={{ color: 'var(--grafite)' }}>
+              Prefere WhatsApp?
+            </p>
+            <a
+              href={`${artistInfo.whatsappLink}?text=${encodeURIComponent('Olá! Gostaria de tirar uma dúvida.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-xs mt-2"
+              style={{ width: '100%', justifyContent: 'center' }}
+            >
+              Chamar no WhatsApp
+            </a>
           </div>
         </div>
 
-        {/* Formulário */}
-        {sent ? (
-          <div className="flex flex-col justify-center">
-            <div className="w-10 h-10 border border-[var(--terra-h)] rounded-full flex items-center justify-center mb-4">
-              <svg className="w-4 h-4 text-orange-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
+        {/* Form */}
+        <div className="lg:col-span-2">
+          {sent ? (
+            <div
+              className="flex flex-col items-center justify-center text-center py-16 px-8 rounded-sm animate-scale-in"
+              style={{ backgroundColor: 'var(--bege-l)', border: '1px solid var(--bege)' }}
+            >
+              <div
+                className="w-14 h-14 rounded-full flex items-center justify-center mb-5"
+                style={{ backgroundColor: 'var(--terra)', color: '#fff' }}
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-serif font-semibold text-2xl mb-2" style={{ color: 'var(--grafite)' }}>
+                Mensagem Enviada
+              </h2>
+              <p className="text-sm" style={{ color: 'var(--bege-d)' }}>
+                Retornaremos em breve. Obrigado pelo contato!
+              </p>
             </div>
-            <h2 className="text-xl font-light text-white">Mensagem Enviada</h2>
-            <p className="mt-2 text-[var(--cream-3)]">Retornaremos em breve. Obrigado pelo contato.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {[
-              { id: 'name', label: 'Nome', type: 'text' },
-              { id: 'email', label: 'E-mail', type: 'email' },
-              { id: 'subject', label: 'Assunto', type: 'text' },
-            ].map(({ id, label, type }) => (
-              <div key={id}>
-                <label htmlFor={id} className="block text-xs text-[var(--cream-3)] uppercase tracking-widest mb-1">
-                  {label}
-                </label>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {[
+                  { id: 'name', label: 'Nome', type: 'text', placeholder: 'Seu nome' },
+                  { id: 'email', label: 'E-mail', type: 'email', placeholder: 'seu@email.com' },
+                ].map(({ id, label, type, placeholder }) => (
+                  <div key={id}>
+                    <label className="field-label">{label} *</label>
+                    <input
+                      id={id}
+                      type={type}
+                      required
+                      className="field"
+                      placeholder={placeholder}
+                      value={form[id as keyof typeof form] as string}
+                      onChange={e => setForm(f => ({ ...f, [id]: e.target.value }))}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <label className="field-label">Assunto *</label>
                 <input
-                  id={id}
-                  type={type}
+                  type="text"
                   required
-                  value={form[id as keyof typeof form]}
-                  onChange={e => setForm(f => ({ ...f, [id]: e.target.value }))}
-                  className="w-full bg-[var(--teal-800)] border border-[var(--teal-600)] text-white px-4 py-3 text-sm focus:outline-none focus:border-[var(--terra)] transition-colors"
+                  className="field"
+                  placeholder="Compra, encomenda, dúvida..."
+                  value={form.subject}
+                  onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
                 />
               </div>
-            ))}
 
-            <div>
-              <label htmlFor="message" className="block text-xs text-[var(--cream-3)] uppercase tracking-widest mb-1">
-                Mensagem
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                required
-                value={form.message}
-                onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                className="w-full bg-[var(--teal-800)] border border-[var(--teal-600)] text-white px-4 py-3 text-sm focus:outline-none focus:border-[var(--terra)] transition-colors resize-none"
-              />
-            </div>
+              <div>
+                <label className="field-label">Mensagem *</label>
+                <textarea
+                  rows={6}
+                  required
+                  className="field"
+                  style={{ resize: 'vertical' }}
+                  placeholder="Escreva sua mensagem aqui..."
+                  value={form.message}
+                  onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                />
+              </div>
 
-            <button
-              type="submit"
-              className="w-full py-4 bg-[var(--terra)] text-white text-sm tracking-widest uppercase hover:bg-[var(--terra-h)] transition-colors"
-            >
-              Enviar Mensagem
-            </button>
-          </form>
-        )}
+              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}>
+                Enviar Mensagem
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </main>
   )

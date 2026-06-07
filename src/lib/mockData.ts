@@ -2,11 +2,13 @@ import type { Artwork } from '../types'
 
 export const artistInfo = {
   name: 'Alemão Vargas Moreira',
-  bio: 'Pintor realista com mais de 40 anos de ofício. Suas obras capturam a luz e a textura do cotidiano com uma precisão que transforma o comum em eterno. Acompanhe o processo de criação no TikTok.',
+  bio: 'Pintor realista com mais de 40 anos de ofício. Suas obras capturam a luz e a textura do cotidiano com uma precisão que transforma o comum em eterno.',
   tiktok: 'https://www.tiktok.com/@alemaovargasmoreira',
   tiktokHandle: '@alemaovargasmoreira',
   location: 'Brasil',
   speciality: 'Pintura a óleo realista',
+  whatsapp: '5511999999999',
+  whatsappLink: 'https://wa.me/5511999999999',
 }
 
 export const mockArtworks: Artwork[] = [
@@ -104,3 +106,27 @@ export const placeholderImages: Record<string, string> = {
   '5': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=80',
   '6': 'https://images.unsplash.com/photo-1533827432537-70133748f5c8?w=800&auto=format&fit=crop&q=80',
 }
+
+export const testimonials = [
+  {
+    id: '1',
+    name: 'Mariana Sousa',
+    role: 'Colecionadora, São Paulo',
+    text: 'O retrato do meu pai ficou além do que eu imaginava. A emoção de ver cada detalhe reproduzido com tanta maestria não tem preço. Alemão tem um dom único.',
+    avatar: 'MS',
+  },
+  {
+    id: '2',
+    name: 'Ricardo Fonseca',
+    role: 'Arquiteto de Interiores',
+    text: 'Indico para todos os meus clientes que buscam uma peça singular para o ambiente. As obras têm presença, profundidade e uma qualidade técnica impecável.',
+    avatar: 'RF',
+  },
+  {
+    id: '3',
+    name: 'Ana Luíza Bertoldi',
+    role: 'Compradora, Rio de Janeiro',
+    text: 'Comprei "Mercado ao Entardecer" e ela é o ponto focal da minha sala. Toda visita para e pergunta de quem é. Vale cada centavo — arte de verdade.',
+    avatar: 'AB',
+  },
+]
