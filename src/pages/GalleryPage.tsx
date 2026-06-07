@@ -20,8 +20,15 @@ export function GalleryPage() {
         url="https://alemaovargasmoreira.com.br/galeria"
       />
       <div className="mb-12">
-        <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-2">Coleção</p>
-        <h1 className="text-4xl font-light text-white">Galeria de Obras</h1>
+        <p
+          className="text-xs tracking-[0.4em] uppercase mb-2 font-semibold"
+          style={{ color: 'var(--salmon)' }}
+        >
+          Coleção
+        </p>
+        <h1 className="text-4xl font-bold" style={{ color: 'var(--teal-900)' }}>
+          Galeria de Obras
+        </h1>
       </div>
 
       {/* Filtros */}
@@ -30,11 +37,16 @@ export function GalleryPage() {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`px-4 py-2 text-xs tracking-widest uppercase transition-colors ${
+            className="px-4 py-2 text-xs font-bold tracking-widest uppercase rounded cursor-pointer transition-all duration-200"
+            style={
               active === cat
-                ? 'bg-[var(--terra)] text-white'
-                : 'border border-[var(--teal-600)] text-[var(--cream-3)] hover:border-neutral-600 hover:text-[var(--cream)]'
-            }`}
+                ? { backgroundColor: 'var(--terra)', color: '#fff' }
+                : {
+                    backgroundColor: 'var(--card)',
+                    color: 'var(--teal-700)',
+                    border: '1px solid #e8e0d6',
+                  }
+            }
           >
             {cat}
           </button>
@@ -49,7 +61,9 @@ export function GalleryPage() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-[var(--teal-500)] py-20">Nenhuma obra nesta categoria.</p>
+        <p className="text-center py-20" style={{ color: 'var(--teal-600)' }}>
+          Nenhuma obra nesta categoria.
+        </p>
       )}
     </main>
   )
