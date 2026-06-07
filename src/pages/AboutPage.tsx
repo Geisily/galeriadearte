@@ -1,8 +1,14 @@
 import { artistInfo, placeholderImages } from '../lib/mockData'
+import { SEO } from '../components/SEO'
 
 export function AboutPage() {
   return (
     <main className="max-w-7xl mx-auto px-6 py-16">
+      <SEO
+        title="Sobre o Artista"
+        description={`Conheça ${artistInfo.name}, pintor realista brasileiro. ${artistInfo.bio}`}
+        url="https://alemaovargasmoreira.com.br/sobre"
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Foto */}
         <div className="bg-neutral-900 overflow-hidden aspect-[3/4] max-w-md">

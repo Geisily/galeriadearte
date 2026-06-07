@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
-import { mockArtworks, placeholderImages } from '../lib/mockData'
+import { mockArtworks, placeholderImages, artistInfo } from '../lib/mockData'
 import { useCartStore } from '../store/cartStore'
+import { SEO } from '../components/SEO'
 
 export function ArtworkDetailPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -22,8 +23,39 @@ export function ArtworkDetailPage() {
 
   const inCart = items.some(i => i.artwork._id === artwork._id)
 
+  const artworkJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: artwork.title,
+    description: artwork.description,
+    image: placeholderImages[artwork._id],
+    brand: { '@type': 'Person', name: artistInfo.name },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'BRL',
+      price: artwork.price,
+      availability: artwork.inStock
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/SoldOut',
+      url: `https://alemaovargasmoreira.com.br/obra/${artwork.slug.current}`,
+    },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Técnica', value: artwork.medium },
+      { '@type': 'PropertyValue', name: 'Dimensões', value: artwork.dimensions },
+      { '@type': 'PropertyValue', name: 'Ano', value: artwork.year },
+    ],
+  }
+
   return (
     <main className="max-w-7xl mx-auto px-6 py-16">
+      <SEO
+        title={artwork.title}
+        description={`${artwork.description} ${artwork.medium}, ${artwork.dimensions}, ${artwork.year}. ${artwork.inStock ? `R$ ${artwork.price.toLocaleString('pt-BR')}` : 'Obra vendida.'}`}
+        image={placeholderImages[artwork._id]}
+        url={`https://alemaovargasmoreira.com.br/obra/${artwork.slug.current}`}
+        type="product"
+        jsonLd={artworkJsonLd}
+      />
       <Link to="/galeria" className="text-sm text-neutral-600 hover:text-white transition-colors tracking-wider uppercase">
         ← Galeria
       </Link>

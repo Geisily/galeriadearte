@@ -1,12 +1,28 @@
 import { Link } from 'react-router-dom'
 import { mockArtworks, artistInfo, placeholderImages } from '../lib/mockData'
 import { ArtworkCard } from '../components/artwork/ArtworkCard'
+import { SEO } from '../components/SEO'
+
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: artistInfo.name,
+  jobTitle: 'Pintor Realista',
+  description: artistInfo.bio,
+  url: 'https://alemaovargasmoreira.com.br',
+  sameAs: [artistInfo.tiktok],
+  knowsAbout: ['Pintura a óleo', 'Realismo', 'Arte brasileira'],
+}
 
 export function HomePage() {
   const featured = mockArtworks.filter(a => a.inStock).slice(0, 3)
 
   return (
     <main>
+      <SEO
+        description={`${artistInfo.bio} Obras originais à venda. TikTok ${artistInfo.tiktokHandle}.`}
+        jsonLd={homeJsonLd}
+      />
       {/* Hero */}
       <section className="relative h-[90vh] flex items-end overflow-hidden">
         <img

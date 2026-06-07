@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { artistInfo } from '../lib/mockData'
+import { SEO } from '../components/SEO'
 
 export function ContactPage() {
   const [sent, setSent] = useState(false)
@@ -12,6 +13,11 @@ export function ContactPage() {
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
+      <SEO
+        title="Contato"
+        description={`Entre em contato com ${artistInfo.name} para dúvidas sobre obras, encomendas e envio. Pintura a óleo realista original.`}
+        url="https://alemaovargasmoreira.com.br/contato"
+      />
       <div className="mb-12">
         <p className="text-xs text-amber-500 tracking-[0.4em] uppercase mb-2">Fale Conosco</p>
         <h1 className="text-4xl font-light text-white">Contato</h1>

@@ -1,4 +1,5 @@
 import { artistInfo } from '../lib/mockData'
+import { SEO } from '../components/SEO'
 
 const videos = [
   {
@@ -41,6 +42,12 @@ const videos = [
 
 export function VideosPage() {
   return (
+    <>
+    <SEO
+      title="Vídeos — Processo Criativo"
+      description={`Assista aos vídeos de ${artistInfo.name} no TikTok ${artistInfo.tiktokHandle}. Técnicas de pintura a óleo, timelapses e bastidores do ateliê.`}
+      url="https://alemaovargasmoreira.com.br/videos"
+    />
     <main className="max-w-7xl mx-auto px-6 py-16">
       <div className="mb-12">
         <p className="text-xs text-amber-500 tracking-[0.4em] uppercase mb-2">Processo Criativo</p>
@@ -92,5 +99,6 @@ export function VideosPage() {
         </a>
       </div>
     </main>
+    </>
   )
 }

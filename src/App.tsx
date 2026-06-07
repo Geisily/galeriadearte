@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { HomePage } from './pages/HomePage'
@@ -12,6 +13,7 @@ import { ContactPage } from './pages/ContactPage'
 
 function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <div className="min-h-screen flex flex-col bg-[#0a0a0a]">
         <Navbar />
@@ -30,6 +32,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </HelmetProvider>
   )
 }
 

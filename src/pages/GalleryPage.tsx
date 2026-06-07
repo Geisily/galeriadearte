@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { mockArtworks } from '../lib/mockData'
 import { ArtworkCard } from '../components/artwork/ArtworkCard'
+import { SEO } from '../components/SEO'
 
 const categories = ['Todas', 'Retrato', 'Natureza Morta', 'Paisagem', 'Cena Urbana']
 
@@ -13,6 +14,11 @@ export function GalleryPage() {
 
   return (
     <main className="max-w-7xl mx-auto px-6 py-16">
+      <SEO
+        title="Galeria de Obras"
+        description="Explore a coleção completa de pinturas a óleo realistas — retratos, paisagens, natureza morta e cenas urbanas. Obras originais à venda."
+        url="https://alemaovargasmoreira.com.br/galeria"
+      />
       <div className="mb-12">
         <p className="text-xs text-amber-500 tracking-[0.4em] uppercase mb-2">Coleção</p>
         <h1 className="text-4xl font-light text-white">Galeria de Obras</h1>
