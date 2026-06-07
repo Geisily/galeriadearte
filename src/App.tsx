@@ -14,8 +14,8 @@ import { ContactPage } from './pages/ContactPage'
 function App() {
   return (
     <HelmetProvider>
-    <BrowserRouter basename="/galeriadearte">
-      <div className="min-h-screen flex flex-col">
+    <BrowserRouter basename="/">
+      <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--bg)' }}>
         <Navbar />
         <div className="flex-1">
           <Routes>
