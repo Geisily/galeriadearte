@@ -14,7 +14,7 @@ import { ContactPage } from './pages/ContactPage'
 function App() {
   return (
     <HelmetProvider>
-    <BrowserRouter>
+    <BrowserRouter basename="/galeriadearte">
       <div className="min-h-screen flex flex-col bg-[#0d0b09]">
         <Navbar />
         <div className="flex-1">
