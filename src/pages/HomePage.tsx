@@ -33,19 +33,19 @@ export function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-20">
-          <p className="text-xs text-orange-400 tracking-[0.4em] uppercase mb-4">
+          <p className="text-xs text-[var(--peach)] tracking-[0.4em] uppercase mb-4">
             Pintura Realista
           </p>
           <h1 className="text-5xl md:text-7xl font-light text-white leading-tight max-w-3xl">
             A vida retratada<br />com fidelidade
           </h1>
-          <p className="mt-6 text-neutral-400 max-w-xl leading-relaxed">
+          <p className="mt-6 text-[var(--cream-2)] max-w-xl leading-relaxed">
             {artistInfo.bio}
           </p>
           <div className="mt-8 flex gap-4">
             <Link
               to="/galeria"
-              className="px-8 py-3 bg-orange-800 text-white text-sm tracking-widest uppercase hover:bg-orange-700 transition-colors"
+              className="px-8 py-3 bg-[var(--terra)] text-white text-sm tracking-widest uppercase hover:bg-[var(--terra-h)] transition-colors"
             >
               Ver Galeria
             </Link>
@@ -63,10 +63,10 @@ export function HomePage() {
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-xs text-orange-500 tracking-[0.4em] uppercase mb-2">Obras Disponíveis</p>
+            <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-2">Obras Disponíveis</p>
             <h2 className="text-3xl font-light text-white">Peças Selecionadas</h2>
           </div>
-          <Link to="/galeria" className="text-sm text-neutral-500 hover:text-white transition-colors tracking-wider uppercase">
+          <Link to="/galeria" className="text-sm text-[var(--cream-3)] hover:text-[var(--cream)] transition-colors tracking-wider uppercase">
             Ver todas →
           </Link>
         </div>
@@ -79,12 +79,12 @@ export function HomePage() {
       </section>
 
       {/* TikTok banner */}
-      <section className="border-y border-neutral-800 bg-neutral-950">
+      <section className="border-y border-[var(--teal-600)] bg-[var(--teal-950)]">
         <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2">Processo Criativo</p>
+            <p className="text-xs text-[var(--teal-500)] uppercase tracking-widest mb-2">Processo Criativo</p>
             <h2 className="text-2xl font-light text-white">Veja como as obras tomam forma</h2>
-            <p className="mt-3 text-neutral-500 max-w-lg leading-relaxed">
+            <p className="mt-3 text-[var(--cream-3)] max-w-lg leading-relaxed">
               No TikTok, {artistInfo.name} compartilha momentos do ateliê — o gesto do pincel,
               as escolhas de cor e a paciência que transforma tela em vida.
             </p>
@@ -105,10 +105,10 @@ export function HomePage() {
 
       {/* Quote */}
       <section className="max-w-3xl mx-auto px-6 py-24 text-center">
-        <blockquote className="text-2xl md:text-3xl font-light text-neutral-300 leading-relaxed italic">
+        <blockquote className="text-2xl md:text-3xl font-light text-[var(--cream-2)] leading-relaxed italic">
           "Pintar é ver o que os outros passam sem notar."
         </blockquote>
-        <cite className="mt-6 block text-sm text-neutral-600 not-italic tracking-widest uppercase">
+        <cite className="mt-6 block text-sm text-[var(--teal-500)] not-italic tracking-widest uppercase">
           — {artistInfo.name}
         </cite>
       </section>

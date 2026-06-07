@@ -11,7 +11,7 @@ export function AboutPage() {
       />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Foto */}
-        <div className="bg-neutral-900 overflow-hidden aspect-[3/4] max-w-md">
+        <div className="bg-[var(--teal-800)] overflow-hidden aspect-[3/4] max-w-md">
           <img
             src={placeholderImages['1']}
             alt={artistInfo.name}
@@ -21,11 +21,11 @@ export function AboutPage() {
 
         {/* Bio */}
         <div className="lg:pt-8">
-          <p className="text-xs text-orange-500 tracking-[0.4em] uppercase mb-4">O Artista</p>
+          <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-4">O Artista</p>
           <h1 className="text-4xl font-light text-white leading-tight">{artistInfo.name}</h1>
-          <p className="text-neutral-500 mt-1">{artistInfo.speciality} · {artistInfo.location}</p>
+          <p className="text-[var(--cream-3)] mt-1">{artistInfo.speciality} · {artistInfo.location}</p>
 
-          <div className="mt-8 space-y-4 text-neutral-400 leading-relaxed">
+          <div className="mt-8 space-y-4 text-[var(--cream-2)] leading-relaxed">
             <p>
               Dedicado à pintura a óleo realista, {artistInfo.name} construiu
               uma obra singular marcada pela precisão técnica e pela atenção às histórias contidas
@@ -44,7 +44,7 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-neutral-800 pt-10">
+          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--teal-600)] pt-10">
             {[
               { label: 'Anos de ofício', value: '40+' },
               { label: 'Obras realizadas', value: '300+' },
@@ -52,7 +52,7 @@ export function AboutPage() {
               { label: 'Presença online', value: 'TikTok' },
             ].map(({ label, value }) => (
               <div key={label}>
-                <p className="text-xs text-neutral-600 uppercase tracking-widest">{label}</p>
+                <p className="text-xs text-[var(--teal-500)] uppercase tracking-widest">{label}</p>
                 <p className="text-xl font-light text-white mt-1">{value}</p>
               </div>
             ))}
@@ -62,7 +62,7 @@ export function AboutPage() {
             href={artistInfo.tiktok}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 px-8 py-4 border border-neutral-700 text-white hover:border-orange-700 transition-colors text-sm tracking-widest uppercase"
+            className="mt-10 inline-flex items-center gap-3 px-8 py-4 border border-neutral-700 text-white hover:border-[var(--terra-h)] transition-colors text-sm tracking-widest uppercase"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.85 4.85 0 0 1-1.01-.39z"/>

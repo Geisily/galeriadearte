@@ -15,7 +15,7 @@ function App() {
   return (
     <HelmetProvider>
     <BrowserRouter basename="/galeriadearte">
-      <div className="min-h-screen flex flex-col bg-[#0d0b09]">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-1">
           <Routes>
