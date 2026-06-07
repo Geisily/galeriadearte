@@ -3,72 +3,104 @@ import { SEO } from '../components/SEO'
 
 export function AboutPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 py-16">
+    <main>
       <SEO
         title="Sobre o Artista"
         description={`Conheça ${artistInfo.name}, pintor realista brasileiro. ${artistInfo.bio}`}
         url="https://alemaovargasmoreira.com.br/sobre"
       />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        {/* Foto */}
-        <div className="bg-[var(--teal-800)] overflow-hidden aspect-[3/4] max-w-md">
-          <img
-            src={placeholderImages['1']}
-            alt={artistInfo.name}
-            className="w-full h-full object-cover"
-          />
+
+      {/* Header */}
+      <div className="border-b" style={{ backgroundColor: 'var(--card)', borderColor: '#e8e0d6' }}>
+        <div className="max-w-7xl mx-auto px-6 py-14">
+          <p className="section-label mb-3">O Artista</p>
+          <h1 className="text-serif font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--teal-900)' }}>
+            {artistInfo.name}
+          </h1>
         </div>
+      </div>
 
-        {/* Bio */}
-        <div className="lg:pt-8">
-          <p className="text-xs text-[var(--salmon)] tracking-[0.4em] uppercase mb-4">O Artista</p>
-          <h1 className="text-4xl font-light text-white leading-tight">{artistInfo.name}</h1>
-          <p className="text-[var(--cream-3)] mt-1">{artistInfo.speciality} · {artistInfo.location}</p>
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
-          <div className="mt-8 space-y-4 text-[var(--cream-2)] leading-relaxed">
-            <p>
-              Dedicado à pintura a óleo realista, {artistInfo.name} construiu
-              uma obra singular marcada pela precisão técnica e pela atenção às histórias contidas
-              nos rostos e nas cenas do cotidiano brasileiro.
-            </p>
-            <p>
-              Influenciado pelos grandes mestres do realismo europeu — de Rembrandt a Gustave Courbet —,
-              ele desenvolveu uma linguagem própria que honra a tradição sem abrir mão de uma
-              sensibilidade contemporânea. Cada tela é resultado de semanas de observação, esboços
-              e camadas de tinta a óleo sobrepostas com paciência.
-            </p>
-            <p>
-              No TikTok, compartilha momentos do ateliê com quem quer entender o ofício da pintura
-              realista — o gesto do pincel, as escolhas de cor, e a paciência que transforma
-              tela em vida.
-            </p>
+          {/* Image */}
+          <div className="lg:col-span-2">
+            <div
+              className="overflow-hidden"
+              style={{ aspectRatio: '3/4', borderRadius: '2px', boxShadow: '0 8px 40px rgba(14,31,43,0.12)' }}
+            >
+              <img
+                src={placeholderImages['1']}
+                alt={artistInfo.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--teal-600)] pt-10">
-            {[
-              { label: 'Anos de ofício', value: '40+' },
-              { label: 'Obras realizadas', value: '300+' },
-              { label: 'Técnica principal', value: 'Óleo s/ tela' },
-              { label: 'Presença online', value: 'TikTok' },
-            ].map(({ label, value }) => (
-              <div key={label}>
-                <p className="text-xs text-[var(--teal-500)] uppercase tracking-widest">{label}</p>
-                <p className="text-xl font-light text-white mt-1">{value}</p>
-              </div>
-            ))}
-          </div>
+          {/* Bio */}
+          <div className="lg:col-span-3 lg:pt-2">
+            <p className="text-sans text-sm mb-1" style={{ color: 'var(--teal-600)' }}>
+              {artistInfo.speciality} · {artistInfo.location}
+            </p>
 
-          <a
-            href={artistInfo.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 px-8 py-4 border border-neutral-700 text-white hover:border-[var(--terra-h)] transition-colors text-sm tracking-widest uppercase"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.85 4.85 0 0 1-1.01-.39z"/>
-            </svg>
-            Acompanhar no TikTok
-          </a>
+            <div className="divider my-6" />
+
+            <div className="space-y-5 text-sm leading-relaxed" style={{ color: 'var(--teal-700)' }}>
+              <p>
+                Dedicado à pintura a óleo realista, {artistInfo.name} construiu
+                uma obra singular marcada pela precisão técnica e pela atenção às histórias contidas
+                nos rostos e nas cenas do cotidiano brasileiro.
+              </p>
+              <p>
+                Influenciado pelos grandes mestres do realismo europeu — de Rembrandt a Gustave Courbet —,
+                ele desenvolveu uma linguagem própria que honra a tradição sem abrir mão de uma
+                sensibilidade contemporânea. Cada tela é resultado de semanas de observação, esboços
+                e camadas de tinta a óleo sobrepostas com paciência.
+              </p>
+              <p>
+                No TikTok, compartilha momentos do ateliê com quem quer entender o ofício da pintura
+                realista — o gesto do pincel, as escolhas de cor, e a paciência que transforma
+                tela em vida.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-10"
+              style={{ borderTop: '1px solid #e8e0d6' }}
+            >
+              {[
+                { label: 'Anos de ofício', value: '40+' },
+                { label: 'Obras realizadas', value: '300+' },
+                { label: 'Técnica principal', value: 'Óleo s/ tela' },
+                { label: 'Presença online', value: 'TikTok' },
+              ].map(({ label, value }) => (
+                <div key={label}>
+                  <p className="text-serif font-semibold text-2xl mb-1" style={{ color: 'var(--terra)' }}>
+                    {value}
+                  </p>
+                  <p className="text-xs uppercase tracking-widest" style={{ color: 'var(--cream-3)' }}>
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-4 mt-10">
+              <a
+                href={artistInfo.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.85 4.85 0 0 1-1.01-.39z"/>
+                </svg>
+                Acompanhar no TikTok
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </main>

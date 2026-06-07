@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
@@ -9,7 +10,7 @@
     --teal-600:  #2a4f63;
     --teal-500:  #3a6478;
     --terra:     #c84b2a;
-    --terra-h:   #d95f3b;
+    --terra-h:   #b53d20;
     --salmon:    #e07960;
     --peach:     #f0a882;
     --cream:     #f5e8d8;
@@ -33,10 +34,14 @@
   body {
     background-color: var(--bg);
     color: var(--teal-900);
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, blockquote {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   img {
@@ -49,33 +54,98 @@
     text-decoration: none;
   }
 
-  a, button {
-    transition-property: color, background-color, border-color, opacity, transform, box-shadow;
-    transition-duration: 300ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--teal-900); }
-  ::-webkit-scrollbar-thumb { background: var(--teal-600); border-radius: 2px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--teal-500); }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--cream-2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--cream-3); }
 }
 
-/* Animações de entrada */
+/* ── Animations ─────────────────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
 
-.animate-fade-up  { animation: fadeUp  0.7s cubic-bezier(0.4, 0, 0.2, 1) both; }
-.animate-fade-in  { animation: fadeIn  0.6s ease both; }
+.animate-fade-up   { animation: fadeUp   0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-in   { animation: fadeIn   0.6s ease both; }
+.animate-slide-down{ animation: slideDown 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-scale-in  { animation: scaleIn  0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 .animation-delay-100 { animation-delay: 100ms; }
 .animation-delay-200 { animation-delay: 200ms; }
 .animation-delay-300 { animation-delay: 300ms; }
 .animation-delay-400 { animation-delay: 400ms; }
 .animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+
+/* ── Utility ────────────────────────────────────────── */
+.text-serif { font-family: 'Playfair Display', Georgia, serif; }
+.text-sans  { font-family: 'Inter', system-ui, sans-serif; }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background-color: var(--terra);
+  color: #fff;
+  border-radius: 2px;
+  transition: background-color 220ms ease, transform 200ms ease, box-shadow 220ms ease;
+}
+.btn-primary:hover {
+  background-color: var(--terra-h);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200, 75, 42, 0.28);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  transition: background-color 220ms ease, color 220ms ease, transform 200ms ease;
+}
+.btn-outline:hover {
+  transform: translateY(-1px);
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--salmon);
+}
+
+.divider {
+  width: 3rem;
+  height: 2px;
+  background-color: var(--terra);
+  border-radius: 1px;
+}

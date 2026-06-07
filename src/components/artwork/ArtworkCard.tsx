@@ -4,72 +4,88 @@ import { placeholderImages } from '../../lib/mockData'
 
 interface Props {
   artwork: Artwork
+  size?: 'default' | 'large'
 }
 
-export function ArtworkCard({ artwork }: Props) {
+export function ArtworkCard({ artwork, size = 'default' }: Props) {
   const imageUrl = placeholderImages[artwork._id] || ''
 
   return (
     <Link
       to={`/obra/${artwork.slug.current}`}
-      className="group block rounded-lg overflow-hidden transition-all duration-300"
-      style={{
-        backgroundColor: 'var(--card)',
-        boxShadow: '0 1px 4px rgba(14,31,43,0.08)',
-      }}
+      className="group block"
+      style={{ textDecoration: 'none' }}
     >
-      {/* Imagem com badge */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '4/5' }}>
+      {/* Image container */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          aspectRatio: size === 'large' ? '3/4' : '4/5',
+          backgroundColor: 'var(--cream)',
+        }}
+      >
         <img
           src={imageUrl}
           alt={artwork.image.alt || artwork.title}
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           loading="lazy"
-          style={{ display: 'block' }}
         />
-        {/* Badge status */}
+
+        {/* Overlay on hover */}
+        <div
+          className="absolute inset-0 transition-opacity duration-400"
+          style={{
+            background: 'linear-gradient(to top, rgba(14,31,43,0.55) 0%, transparent 55%)',
+            opacity: 0,
+          }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+          onMouseLeave={e => (e.currentTarget.style.opacity = '0')}
+        />
+
+        {/* Hover CTA */}
+        <div
+          className="absolute bottom-0 left-0 right-0 px-4 pb-4 translate-y-2 opacity-0 transition-all duration-350 group-hover:translate-y-0 group-hover:opacity-100"
+        >
+          <span
+            className="inline-block text-xs tracking-widest uppercase font-semibold text-white px-4 py-2 rounded-sm"
+            style={{ backgroundColor: 'rgba(200,75,42,0.92)' }}
+          >
+            Ver Obra
+          </span>
+        </div>
+
+        {/* Status badge */}
         <span
-          className="absolute top-3 left-3 text-xs font-bold px-2 py-1 rounded"
+          className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-sm"
           style={
             artwork.inStock
               ? { backgroundColor: 'var(--terra)', color: '#fff' }
-              : { backgroundColor: 'var(--teal-600)', color: 'var(--cream)' }
+              : { backgroundColor: 'rgba(14,31,43,0.65)', color: 'var(--cream-2)' }
           }
         >
           {artwork.inStock ? 'Disponível' : 'Vendido'}
         </span>
-        {/* overlay hover */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/8 transition-colors duration-500" />
       </div>
 
       {/* Info */}
-      <div className="p-4">
+      <div className="pt-3 pb-1">
         <h3
-          className="text-base font-bold leading-snug mb-1 transition-colors duration-300"
-          style={{ color: 'var(--teal-900)' }}
+          className="text-serif font-semibold leading-snug mb-0.5 transition-colors duration-200 group-hover:text-[var(--terra)]"
+          style={{ fontSize: '1rem', color: 'var(--teal-900)' }}
         >
           {artwork.title}
         </h3>
 
-        {/* Estrelinhas decorativas */}
-        <div className="flex items-center gap-1 mb-2">
-          <span className="text-sm" style={{ color: '#f59e0b' }}>★★★★★</span>
-          <span className="text-xs" style={{ color: 'var(--teal-600)' }}>4.9</span>
-        </div>
-
-        <p className="text-xs tracking-wider uppercase mb-1" style={{ color: 'var(--teal-600)' }}>
-          {artwork.medium} · {artwork.year}
-        </p>
-        <p className="text-xs mb-3" style={{ color: 'var(--cream-3)' }}>
-          {artwork.dimensions}
+        <p className="text-xs mb-2" style={{ color: 'var(--teal-600)', letterSpacing: '0.05em' }}>
+          {artwork.medium}{artwork.dimensions ? ` · ${artwork.dimensions}` : ''} · {artwork.year}
         </p>
 
         {artwork.inStock ? (
-          <p className="text-base font-bold" style={{ color: 'var(--terra)' }}>
+          <p className="text-base font-semibold text-sans" style={{ color: 'var(--terra)' }}>
             R$ {artwork.price.toLocaleString('pt-BR')}
           </p>
         ) : (
-          <p className="text-sm font-medium" style={{ color: 'var(--teal-600)' }}>
+          <p className="text-sm text-sans" style={{ color: 'var(--cream-3)' }}>
             Obra vendida
           </p>
         )}
