@@ -14,7 +14,7 @@ import { ContactPage } from './pages/ContactPage'
 function App() {
   return (
     <HelmetProvider>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"}>
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--bg)' }}>
         <Navbar />
         <div className="flex-1">
