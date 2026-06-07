@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alemaovargasmoreira.com.br/sitemap.xml
